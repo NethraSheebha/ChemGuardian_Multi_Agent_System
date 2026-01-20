@@ -80,33 +80,25 @@ class QdrantCollectionManager:
             logger.error(f"✗ Failed to create collection '{collection_name}': {e}")
             return False
     
-    def setup_payload_index(
-        self, 
-        collection_name: str, 
-        field_name: str, 
-        field_type: PayloadSchemaType
-    ) -> bool:
-        """
-        Create an index on a payload field for faster filtering
-        
-        Args:
-            collection_name: Name of the collection
-            field_name: Name of the payload field
-            field_type: Data type of the field
-            
-        Returns:
-            True if successful, False otherwise
-        """
+    def payload_index_exists(self, collection_name: str, field_name: str) -> bool:
         try:
-            self.client.create_payload_index(
-                collection_name=collection_name,
-                field_name=field_name,
-                field_schema=field_type
-            )
+            info = self.client.get_collection(collection_name)
+            schema = info.payload_schema
+            return field_name in schema
+        except Exception:
+            return False
+
+    def setup_payload_index(self, collection_name, field_name, field_type):
+        try:
+            if self.payload_index_exists(collection_name, field_name):
+                logger.info(f"  → Index on '{field_name}' already exists in '{collection_name}', skipping")
+                return True
+        
+            self.client.create_payload_index(collection_name=collection_name, field_name=field_name, field_schema=field_type)
             logger.info(f"  → Created index on '{field_name}' in '{collection_name}'")
             return True
         except Exception as e:
-            logger.error(f"  ✗ Failed to create index on '{field_name}': {e}")
+            logger.error(f"  ✗ Failed index '{field_name}': {e}")
             return False
     
     def setup_all_collections(self) -> Dict[str, bool]:
@@ -237,7 +229,7 @@ def main():
         
         # Check if all succeeded
         if all(results.values()):
-            logger.info("✓ All collections created successfully!")
+            logger.info("All collections created successfully!")
         else:
             failed = [name for name, success in results.items() if not success]
             logger.warning(f"⚠ Some collections failed: {failed}")

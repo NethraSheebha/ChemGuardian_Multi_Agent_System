@@ -1,0 +1,492 @@
+2026-01-19 23:30:21,120 - __main__ - INFO - Initializing pipeline components...
+2026-01-19 23:30:21,130 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-19 23:30:21,136 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-19 23:30:28,853 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-01-20 10:44:10,757 - __main__ - INFO - Initializing pipeline components...
+2026-01-20 10:44:10,759 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-20 10:44:10,761 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-20 10:44:15,926 - huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+2026-01-20 10:44:58,454 - utils.embedder - INFO - Model loaded. Embedding dimension: 768
+2026-01-20 10:45:00,962 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 10:45:01,157 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 404 Not Found"
+2026-01-20 10:52:27,942 - __main__ - INFO - Initializing pipeline components...
+2026-01-20 10:52:27,944 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-20 10:52:27,947 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-20 10:52:36,008 - utils.embedder - INFO - Model loaded. Embedding dimension: 768
+2026-01-20 10:52:37,901 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 10:52:37,986 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 200 OK"
+2026-01-20 10:52:38,035 - __main__ - INFO -   Points: 0
+2026-01-20 10:52:38,036 - __main__ - INFO -   Vector dimension: 768
+2026-01-20 10:52:38,037 - __main__ - INFO - Pipeline initialized successfully
+2026-01-20 10:52:38,038 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:38,038 - __main__ - INFO - CHEMICAL KNOWLEDGE INGESTION PIPELINE
+2026-01-20 10:52:38,039 - __main__ - INFO - ============================================================
+
+2026-01-20 10:52:38,041 - __main__ - INFO - Found 5 PDF files in data\msds
+2026-01-20 10:52:38,042 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:38,042 - __main__ - INFO - Processing: ammonia.pdf
+2026-01-20 10:52:38,043 - __main__ - INFO - ============================================================
+2026-01-20 10:52:43,717 - utils.pdf_processor - INFO - Extracted 32425 characters from data\msds\ammonia.pdf
+2026-01-20 10:52:43,728 - utils.pdf_processor - INFO - Processed ammonia.pdf: 15 chunks, chemical=ammonia Other means of
+2026-01-20 10:52:43,732 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:43,733 - __main__ - INFO - Processing: chlorine.pdf
+2026-01-20 10:52:43,733 - __main__ - INFO - ============================================================
+2026-01-20 10:52:48,238 - utils.pdf_processor - INFO - Extracted 32108 characters from data\msds\chlorine.pdf
+2026-01-20 10:52:48,242 - utils.pdf_processor - INFO - Processed chlorine.pdf: 15 chunks, chemical=chlorine Other means of
+2026-01-20 10:52:48,247 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:48,247 - __main__ - INFO - Processing: nitric_acid.pdf
+2026-01-20 10:52:48,247 - __main__ - INFO - ============================================================
+2026-01-20 10:52:50,398 - utils.pdf_processor - INFO - Extracted 24215 characters from data\msds\nitric_acid.pdf
+2026-01-20 10:52:50,401 - utils.pdf_processor - INFO - Processed nitric_acid.pdf: 3 chunks, chemical=Nitric acid Product Number
+2026-01-20 10:52:50,405 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:50,405 - __main__ - INFO - Processing: propane.pdf
+2026-01-20 10:52:50,405 - __main__ - INFO - ============================================================
+2026-01-20 10:52:52,820 - utils.pdf_processor - INFO - Extracted 28324 characters from data\msds\propane.pdf
+2026-01-20 10:52:52,825 - utils.pdf_processor - INFO - Processed propane.pdf: 13 chunks, chemical=propane Other means of
+2026-01-20 10:52:52,830 - __main__ - INFO - 
+============================================================
+2026-01-20 10:52:52,831 - __main__ - INFO - Processing: sulphuric_acid.pdf
+2026-01-20 10:52:52,831 - __main__ - INFO - ============================================================
+2026-01-20 10:52:54,772 - utils.pdf_processor - INFO - Extracted 20962 characters from data\msds\sulphuric_acid.pdf
+2026-01-20 10:52:54,775 - utils.pdf_processor - INFO - Processed sulphuric_acid.pdf: 3 chunks, chemical=Sulfuric acid Product Number
+2026-01-20 10:52:54,780 - __main__ - INFO - Generating embeddings for 49 chunks...
+2026-01-20 10:52:54,781 - utils.embedder - INFO - Embedding 49 texts in batches of 32
+2026-01-20 10:54:39,536 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,719 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,780 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,827 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,848 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,866 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,882 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,909 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,929 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,944 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,955 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,965 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,977 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:39,995 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,036 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,074 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,087 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,098 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,108 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,126 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,138 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,160 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,177 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,276 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,291 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,325 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,352 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,370 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,405 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,435 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,527 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,601 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,675 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,738 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:40,808 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,001 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,139 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,354 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,418 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,431 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,442 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,451 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,466 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,476 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,538 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,549 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,559 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,569 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,578 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:41,582 - __main__ - INFO - Uploading 49 new chunks to Qdrant...
+2026-01-20 10:54:41,992 - httpx - INFO - HTTP Request: PUT http://localhost:6333/collections/chemical_docs/points?wait=true "HTTP/1.1 200 OK"
+2026-01-20 10:54:42,056 - __main__ - INFO - 
+============================================================
+2026-01-20 10:54:42,057 - __main__ - INFO - INGESTION SUMMARY
+2026-01-20 10:54:42,057 - __main__ - INFO - ============================================================
+2026-01-20 10:54:42,057 - __main__ - INFO - PDFs processed:    5
+2026-01-20 10:54:42,057 - __main__ - INFO - PDFs failed:       0
+2026-01-20 10:54:42,057 - __main__ - INFO - Total chunks:      49
+2026-01-20 10:54:42,058 - __main__ - INFO - New chunks added:  49
+2026-01-20 10:54:42,059 - __main__ - INFO - Time elapsed:      124.02s
+2026-01-20 10:54:42,059 - __main__ - INFO - ============================================================
+
+2026-01-20 10:54:42,079 - __main__ - INFO - 
+============================================================
+2026-01-20 10:54:42,080 - __main__ - INFO - VERIFICATION
+2026-01-20 10:54:42,080 - __main__ - INFO - ============================================================
+
+2026-01-20 10:54:42,116 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 200 OK"
+2026-01-20 10:54:42,146 - __main__ - INFO - Total points in collection: 49
+2026-01-20 10:54:42,146 - __main__ - INFO - 
+Sampling 3 random points:
+
+2026-01-20 10:54:42,169 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 10:54:42,180 - __main__ - INFO - Sample 1:
+2026-01-20 10:54:42,184 - __main__ - INFO -   Chemical: ammonia Other means of
+2026-01-20 10:54:42,186 - __main__ - INFO -   Doc Type: MSDS
+2026-01-20 10:54:42,188 - __main__ - INFO -   Severity: CRITICAL
+2026-01-20 10:54:42,189 - __main__ - INFO -   Source: ammonia.pdf
+2026-01-20 10:54:42,190 - __main__ - INFO -   Section: Full Document
+2026-01-20 10:54:42,191 - __main__ - INFO -   Text preview: Section 8. Exposure controls /personal protection Respiratory protection : Based on the hazard and p...
+2026-01-20 10:54:42,192 - __main__ - INFO - 
+2026-01-20 10:54:42,192 - __main__ - INFO - Sample 2:
+2026-01-20 10:54:42,192 - __main__ - INFO -   Chemical: propane Other means of
+2026-01-20 10:54:42,193 - __main__ - INFO -   Doc Type: MSDS
+2026-01-20 10:54:42,194 - __main__ - INFO -   Severity: HIGH
+2026-01-20 10:54:42,195 - __main__ - INFO -   Source: propane.pdf
+2026-01-20 10:54:42,196 - __main__ - INFO -   Section: Full Document
+2026-01-20 10:54:42,196 - __main__ - INFO -   Text preview: SAFETY DATA SHEET Propane Section 1. Identification GHS product identifier : Propane Chemical name :...
+2026-01-20 10:54:42,198 - __main__ - INFO - 
+2026-01-20 10:54:42,199 - __main__ - INFO - Sample 3:
+2026-01-20 10:54:42,199 - __main__ - INFO -   Chemical: chlorine Other means of
+2026-01-20 10:54:42,199 - __main__ - INFO -   Doc Type: MSDS
+2026-01-20 10:54:42,202 - __main__ - INFO -   Severity: CRITICAL
+2026-01-20 10:54:42,203 - __main__ - INFO -   Source: chlorine.pdf
+2026-01-20 10:54:42,204 - __main__ - INFO -   Section: Full Document
+2026-01-20 10:54:42,205 - __main__ - INFO -   Text preview: : Get medical attention immediately. Call a poison center or physician. Remove victim to fresh air a...
+2026-01-20 10:54:42,206 - __main__ - INFO - 
+2026-01-20 10:58:50,831 - __main__ - INFO - Initializing pipeline components...
+2026-01-20 10:58:50,832 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-20 10:58:50,834 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-20 10:58:58,053 - utils.embedder - INFO - Model loaded. Embedding dimension: 768
+2026-01-20 10:58:59,984 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 10:59:00,096 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 200 OK"
+2026-01-20 10:59:00,143 - __main__ - INFO -   Points: 49
+2026-01-20 10:59:00,143 - __main__ - INFO -   Vector dimension: 768
+2026-01-20 10:59:00,144 - __main__ - INFO - Pipeline initialized successfully
+2026-01-20 10:59:00,144 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:00,145 - __main__ - INFO - CHEMICAL KNOWLEDGE INGESTION PIPELINE
+2026-01-20 10:59:00,145 - __main__ - INFO - ============================================================
+
+2026-01-20 10:59:00,146 - __main__ - INFO - Found 5 PDF files in data\msds
+2026-01-20 10:59:00,146 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:00,146 - __main__ - INFO - Processing: ammonia.pdf
+2026-01-20 10:59:00,147 - __main__ - INFO - ============================================================
+2026-01-20 10:59:05,316 - utils.pdf_processor - INFO - Extracted 32425 characters from data\msds\ammonia.pdf
+2026-01-20 10:59:05,326 - utils.pdf_processor - INFO - Processed ammonia.pdf: 15 chunks, chemical=ammonia Other means of
+2026-01-20 10:59:05,331 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:05,331 - __main__ - INFO - Processing: chlorine.pdf
+2026-01-20 10:59:05,331 - __main__ - INFO - ============================================================
+2026-01-20 10:59:09,666 - utils.pdf_processor - INFO - Extracted 32108 characters from data\msds\chlorine.pdf
+2026-01-20 10:59:09,672 - utils.pdf_processor - INFO - Processed chlorine.pdf: 15 chunks, chemical=chlorine Other means of
+2026-01-20 10:59:09,676 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:09,677 - __main__ - INFO - Processing: nitric_acid.pdf
+2026-01-20 10:59:09,677 - __main__ - INFO - ============================================================
+2026-01-20 10:59:11,757 - utils.pdf_processor - INFO - Extracted 24215 characters from data\msds\nitric_acid.pdf
+2026-01-20 10:59:11,763 - utils.pdf_processor - INFO - Processed nitric_acid.pdf: 3 chunks, chemical=Nitric acid Product Number
+2026-01-20 10:59:11,767 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:11,767 - __main__ - INFO - Processing: propane.pdf
+2026-01-20 10:59:11,767 - __main__ - INFO - ============================================================
+2026-01-20 10:59:13,682 - utils.pdf_processor - INFO - Extracted 28324 characters from data\msds\propane.pdf
+2026-01-20 10:59:13,686 - utils.pdf_processor - INFO - Processed propane.pdf: 13 chunks, chemical=propane Other means of
+2026-01-20 10:59:13,690 - __main__ - INFO - 
+============================================================
+2026-01-20 10:59:13,691 - __main__ - INFO - Processing: sulphuric_acid.pdf
+2026-01-20 10:59:13,691 - __main__ - INFO - ============================================================
+2026-01-20 10:59:15,622 - utils.pdf_processor - INFO - Extracted 20962 characters from data\msds\sulphuric_acid.pdf
+2026-01-20 10:59:15,630 - utils.pdf_processor - INFO - Processed sulphuric_acid.pdf: 3 chunks, chemical=Sulfuric acid Product Number
+2026-01-20 10:59:15,634 - __main__ - INFO - Generating embeddings for 49 chunks...
+2026-01-20 10:59:15,635 - utils.embedder - INFO - Embedding 49 texts in batches of 32
+2026-01-20 11:00:14,195 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,347 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,409 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,429 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,466 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,517 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,538 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,550 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,563 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,577 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,591 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,608 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,619 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,636 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,646 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,657 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,669 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,680 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,693 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,704 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,724 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,731 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,746 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,770 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,780 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,791 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,816 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,829 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,841 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,852 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,861 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,875 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,883 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,898 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,908 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,918 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,928 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,938 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,946 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,956 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,967 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,976 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,984 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:14,994 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,002 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,013 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,024 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,047 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,056 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:00:15,060 - __main__ - INFO - No new chunks to upload (all duplicates)
+2026-01-20 11:00:15,062 - __main__ - INFO - 
+============================================================
+2026-01-20 11:00:15,063 - __main__ - INFO - INGESTION SUMMARY
+2026-01-20 11:00:15,063 - __main__ - INFO - ============================================================
+2026-01-20 11:00:15,063 - __main__ - INFO - PDFs processed:    5
+2026-01-20 11:00:15,063 - __main__ - INFO - PDFs failed:       0
+2026-01-20 11:00:15,063 - __main__ - INFO - Total chunks:      49
+2026-01-20 11:00:15,063 - __main__ - INFO - New chunks added:  0
+2026-01-20 11:00:15,063 - __main__ - INFO - Time elapsed:      74.92s
+2026-01-20 11:00:15,063 - __main__ - INFO - ============================================================
+
+2026-01-20 11:02:55,404 - __main__ - INFO - Initializing pipeline components...
+2026-01-20 11:02:55,410 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-20 11:02:55,421 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-20 11:03:05,988 - utils.embedder - INFO - Model loaded. Embedding dimension: 768
+2026-01-20 11:03:09,569 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 11:03:09,725 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 200 OK"
+2026-01-20 11:03:09,849 - __main__ - INFO -   Points: 49
+2026-01-20 11:03:09,849 - __main__ - INFO -   Vector dimension: 768
+2026-01-20 11:03:09,850 - __main__ - INFO - Pipeline initialized successfully
+2026-01-20 11:03:09,851 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:09,851 - __main__ - INFO - CHEMICAL KNOWLEDGE INGESTION PIPELINE
+2026-01-20 11:03:09,852 - __main__ - INFO - ============================================================
+
+2026-01-20 11:03:09,862 - __main__ - INFO - Found 5 PDF files in data\msds
+2026-01-20 11:03:09,866 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:09,868 - __main__ - INFO - Processing: ammonia.pdf
+2026-01-20 11:03:09,868 - __main__ - INFO - ============================================================
+2026-01-20 11:03:17,324 - utils.pdf_processor - INFO - Extracted 32425 characters from data\msds\ammonia.pdf
+2026-01-20 11:03:17,334 - utils.pdf_processor - INFO - Processed ammonia.pdf: 15 chunks, chemical=ammonia Other means of
+2026-01-20 11:03:17,334 - __main__ - INFO - Extracted 15 chunks from ammonia.pdf
+2026-01-20 11:03:17,336 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:17,336 - __main__ - INFO - Processing: chlorine.pdf
+2026-01-20 11:03:17,336 - __main__ - INFO - ============================================================
+2026-01-20 11:03:22,758 - utils.pdf_processor - INFO - Extracted 32108 characters from data\msds\chlorine.pdf
+2026-01-20 11:03:22,778 - utils.pdf_processor - INFO - Processed chlorine.pdf: 15 chunks, chemical=chlorine Other means of
+2026-01-20 11:03:22,779 - __main__ - INFO - Extracted 15 chunks from chlorine.pdf
+2026-01-20 11:03:22,780 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:22,781 - __main__ - INFO - Processing: nitric_acid.pdf
+2026-01-20 11:03:22,782 - __main__ - INFO - ============================================================
+2026-01-20 11:03:25,532 - utils.pdf_processor - INFO - Extracted 24215 characters from data\msds\nitric_acid.pdf
+2026-01-20 11:03:25,535 - utils.pdf_processor - INFO - Processed nitric_acid.pdf: 3 chunks, chemical=Nitric acid Product Number
+2026-01-20 11:03:25,538 - __main__ - INFO - Extracted 3 chunks from nitric_acid.pdf
+2026-01-20 11:03:25,539 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:25,539 - __main__ - INFO - Processing: propane.pdf
+2026-01-20 11:03:25,539 - __main__ - INFO - ============================================================
+2026-01-20 11:03:28,029 - utils.pdf_processor - INFO - Extracted 28324 characters from data\msds\propane.pdf
+2026-01-20 11:03:28,034 - utils.pdf_processor - INFO - Processed propane.pdf: 13 chunks, chemical=propane Other means of
+2026-01-20 11:03:28,034 - __main__ - INFO - Extracted 13 chunks from propane.pdf
+2026-01-20 11:03:28,034 - __main__ - INFO - 
+============================================================
+2026-01-20 11:03:28,034 - __main__ - INFO - Processing: sulphuric_acid.pdf
+2026-01-20 11:03:28,036 - __main__ - INFO - ============================================================
+2026-01-20 11:03:30,325 - utils.pdf_processor - INFO - Extracted 20962 characters from data\msds\sulphuric_acid.pdf
+2026-01-20 11:03:30,329 - utils.pdf_processor - INFO - Processed sulphuric_acid.pdf: 3 chunks, chemical=Sulfuric acid Product Number
+2026-01-20 11:03:30,330 - __main__ - INFO - Extracted 3 chunks from sulphuric_acid.pdf
+2026-01-20 11:03:30,331 - __main__ - INFO - Generating embeddings for 49 chunks...
+2026-01-20 11:03:30,331 - utils.embedder - INFO - Embedding 49 texts in batches of 32
+2026-01-20 11:05:14,582 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:14,819 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:14,893 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:14,936 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:14,995 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,030 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,066 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,092 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,115 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,136 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,167 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,207 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,240 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,263 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,301 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,319 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,339 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,355 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,373 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,390 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,408 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,423 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,442 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,459 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,485 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,502 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,520 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,583 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,612 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,653 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,710 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,740 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,770 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,803 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,822 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,840 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,853 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,875 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,907 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,924 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,945 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,966 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,984 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:15,997 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,022 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,046 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,075 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,120 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,142 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:05:16,150 - __main__ - INFO - No new chunks to upload (all duplicates)
+2026-01-20 11:05:16,154 - __main__ - INFO - 
+============================================================
+2026-01-20 11:05:16,156 - __main__ - INFO - INGESTION SUMMARY
+2026-01-20 11:05:16,156 - __main__ - INFO - ============================================================
+2026-01-20 11:05:16,157 - __main__ - INFO - PDFs processed:    5
+2026-01-20 11:05:16,157 - __main__ - INFO - PDFs failed:       0
+2026-01-20 11:05:16,157 - __main__ - INFO - Total chunks:      49
+2026-01-20 11:05:16,157 - __main__ - INFO - New chunks added:  0
+2026-01-20 11:05:16,157 - __main__ - INFO - Time elapsed:      126.30s
+2026-01-20 11:05:16,159 - __main__ - INFO - ============================================================
+
+2026-01-20 11:05:16,233 - __main__ - INFO - Ingestion completed successfully!
+2026-01-20 11:07:07,490 - __main__ - INFO - Initializing pipeline components...
+2026-01-20 11:07:07,491 - utils.embedder - INFO - Loading embedding model BAAI/bge-base-en on cpu
+2026-01-20 11:07:07,497 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: BAAI/bge-base-en
+2026-01-20 11:07:14,379 - utils.embedder - INFO - Model loaded. Embedding dimension: 768
+2026-01-20 11:07:16,113 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 11:07:16,229 - httpx - INFO - HTTP Request: GET http://localhost:6333/collections/chemical_docs "HTTP/1.1 200 OK"
+2026-01-20 11:07:16,257 - __main__ - INFO - Collection 'chemical_docs' found
+2026-01-20 11:07:16,258 - __main__ - INFO - Points: 49
+2026-01-20 11:07:16,258 - __main__ - INFO - Vector dimension: 768
+2026-01-20 11:07:16,260 - __main__ - INFO - Pipeline initialized successfully
+2026-01-20 11:07:16,260 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:16,260 - __main__ - INFO - CHEMICAL KNOWLEDGE INGESTION PIPELINE
+2026-01-20 11:07:16,261 - __main__ - INFO - ============================================================
+
+2026-01-20 11:07:16,263 - __main__ - INFO - Found 5 PDF files in data\msds
+2026-01-20 11:07:16,263 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:16,263 - __main__ - INFO - Processing: ammonia.pdf
+2026-01-20 11:07:16,264 - __main__ - INFO - ============================================================
+2026-01-20 11:07:22,019 - utils.pdf_processor - INFO - Extracted 32425 characters from data\msds\ammonia.pdf
+2026-01-20 11:07:22,032 - utils.pdf_processor - INFO - Processed ammonia.pdf: 15 chunks, chemical=ammonia Other means of
+2026-01-20 11:07:22,034 - __main__ - INFO - Extracted 15 chunks from ammonia.pdf
+2026-01-20 11:07:22,035 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:22,037 - __main__ - INFO - Processing: chlorine.pdf
+2026-01-20 11:07:22,039 - __main__ - INFO - ============================================================
+2026-01-20 11:07:26,180 - utils.pdf_processor - INFO - Extracted 32108 characters from data\msds\chlorine.pdf
+2026-01-20 11:07:26,190 - utils.pdf_processor - INFO - Processed chlorine.pdf: 15 chunks, chemical=chlorine Other means of
+2026-01-20 11:07:26,190 - __main__ - INFO - Extracted 15 chunks from chlorine.pdf
+2026-01-20 11:07:26,190 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:26,190 - __main__ - INFO - Processing: nitric_acid.pdf
+2026-01-20 11:07:26,191 - __main__ - INFO - ============================================================
+2026-01-20 11:07:28,364 - utils.pdf_processor - INFO - Extracted 24215 characters from data\msds\nitric_acid.pdf
+2026-01-20 11:07:28,371 - utils.pdf_processor - INFO - Processed nitric_acid.pdf: 3 chunks, chemical=Nitric acid Product Number
+2026-01-20 11:07:28,373 - __main__ - INFO - Extracted 3 chunks from nitric_acid.pdf
+2026-01-20 11:07:28,374 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:28,374 - __main__ - INFO - Processing: propane.pdf
+2026-01-20 11:07:28,374 - __main__ - INFO - ============================================================
+2026-01-20 11:07:30,922 - utils.pdf_processor - INFO - Extracted 28324 characters from data\msds\propane.pdf
+2026-01-20 11:07:30,927 - utils.pdf_processor - INFO - Processed propane.pdf: 13 chunks, chemical=propane Other means of
+2026-01-20 11:07:30,932 - __main__ - INFO - Extracted 13 chunks from propane.pdf
+2026-01-20 11:07:30,934 - __main__ - INFO - 
+============================================================
+2026-01-20 11:07:30,934 - __main__ - INFO - Processing: sulphuric_acid.pdf
+2026-01-20 11:07:30,935 - __main__ - INFO - ============================================================
+2026-01-20 11:07:34,164 - utils.pdf_processor - INFO - Extracted 20962 characters from data\msds\sulphuric_acid.pdf
+2026-01-20 11:07:34,169 - utils.pdf_processor - INFO - Processed sulphuric_acid.pdf: 3 chunks, chemical=Sulfuric acid Product Number
+2026-01-20 11:07:34,169 - __main__ - INFO - Extracted 3 chunks from sulphuric_acid.pdf
+2026-01-20 11:07:34,174 - __main__ - INFO - Generating embeddings for 49 chunks...
+2026-01-20 11:07:34,174 - utils.embedder - INFO - Embedding 49 texts in batches of 32
+2026-01-20 11:08:35,748 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:35,921 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,007 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,027 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,081 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,098 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,123 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,139 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,160 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,177 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,192 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,207 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,221 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,252 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,261 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,279 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,294 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,306 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,320 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,328 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,342 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,354 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,366 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,392 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,403 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,414 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,426 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,439 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,453 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,461 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,474 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,485 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,493 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,506 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,518 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,530 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,542 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,554 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,564 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,573 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,582 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,592 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,604 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,612 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,624 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,637 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,644 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,659 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,696 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/chemical_docs/points/scroll "HTTP/1.1 200 OK"
+2026-01-20 11:08:36,707 - __main__ - INFO - No new chunks to upload (all duplicates)
+2026-01-20 11:08:36,709 - __main__ - INFO - 
+============================================================
+2026-01-20 11:08:36,709 - __main__ - INFO - INGESTION SUMMARY
+2026-01-20 11:08:36,709 - __main__ - INFO - ============================================================
+2026-01-20 11:08:36,709 - __main__ - INFO - PDFs processed:    5
+2026-01-20 11:08:36,709 - __main__ - INFO - PDFs failed:       0
+2026-01-20 11:08:36,709 - __main__ - INFO - Total chunks:      49
+2026-01-20 11:08:36,709 - __main__ - INFO - New chunks added:  0
+2026-01-20 11:08:36,709 - __main__ - INFO - Time elapsed:      80.45s
+2026-01-20 11:08:36,710 - __main__ - INFO - ============================================================
+
+2026-01-20 11:08:36,719 - __main__ - INFO - Ingestion completed successfully!
