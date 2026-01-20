@@ -19,3 +19,4 @@ paho-mqtt==2.1.0
 tsfresh==0.21.0
 tokenizers==0.20.3
 stumpy==1.12.0
+python-dotenv==1.1.1

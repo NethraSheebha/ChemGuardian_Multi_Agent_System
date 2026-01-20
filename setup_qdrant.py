@@ -63,7 +63,7 @@ class QdrantCollectionManager:
         """
         try:
             if self.collection_exists(collection_name):
-                logger.info(f"✓ Collection '{collection_name}' already exists, skipping creation")
+                logger.info(f"Collection '{collection_name}' already exists, skipping creation")
                 return True
             
             self.client.create_collection(
@@ -73,11 +73,11 @@ class QdrantCollectionManager:
                     distance=distance_metric
                 )
             )
-            logger.info(f"✓ Created collection '{collection_name}' with dimension {vector_size}")
+            logger.info(f"Created collection '{collection_name}' with dimension {vector_size}")
             return True
             
         except Exception as e:
-            logger.error(f"✗ Failed to create collection '{collection_name}': {e}")
+            logger.error(f"Failed to create collection '{collection_name}': {e}")
             return False
     
     def payload_index_exists(self, collection_name: str, field_name: str) -> bool:
@@ -91,14 +91,14 @@ class QdrantCollectionManager:
     def setup_payload_index(self, collection_name, field_name, field_type):
         try:
             if self.payload_index_exists(collection_name, field_name):
-                logger.info(f"  → Index on '{field_name}' already exists in '{collection_name}', skipping")
+                logger.info(f"Index on '{field_name}' already exists in '{collection_name}', skipping")
                 return True
         
             self.client.create_payload_index(collection_name=collection_name, field_name=field_name, field_schema=field_type)
-            logger.info(f"  → Created index on '{field_name}' in '{collection_name}'")
+            logger.info(f"Created index on '{field_name}' in '{collection_name}'")
             return True
         except Exception as e:
-            logger.error(f"  ✗ Failed index '{field_name}': {e}")
+            logger.error(f"Failed index '{field_name}': {e}")
             return False
     
     def setup_all_collections(self) -> Dict[str, bool]:
@@ -205,10 +205,10 @@ class QdrantCollectionManager:
             if collection:
                 info = self.client.get_collection(name)
                 actual_dim = info.config.params.vectors.size
-                status = "✓" if actual_dim == expected_dim else "⚠"
+                status = "" if actual_dim == expected_dim else "⚠"
                 logger.info(f"{status} {name}: dimension={actual_dim}, points={info.points_count}")
             else:
-                logger.warning(f"✗ {name}: NOT FOUND")
+                logger.warning(f"  {name}: NOT FOUND")
         
         logger.info("\n" + "="*60)
         logger.info(f"Total collections: {len(collections)}")
@@ -232,10 +232,10 @@ def main():
             logger.info("All collections created successfully!")
         else:
             failed = [name for name, success in results.items() if not success]
-            logger.warning(f"⚠ Some collections failed: {failed}")
+            logger.warning(f"Some collections failed: {failed}")
             
     except Exception as e:
-        logger.error(f"✗ Setup failed with error: {e}")
+        logger.error(f"Setup failed with error: {e}")
         raise
 
 

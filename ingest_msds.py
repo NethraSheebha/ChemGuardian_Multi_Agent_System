@@ -248,7 +248,7 @@ class MSDSIngestionPipeline:
                 collection_name=self.collection_name,
                 points=points
             )
-            logger.info(f"✓ Upload complete! ({skipped} duplicates skipped)")
+            logger.info(f"Upload complete! ({skipped} duplicates skipped)")
         else:
             logger.info("No new chunks to upload (all duplicates)")
         

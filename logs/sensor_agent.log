@@ -1,0 +1,145 @@
+2026-01-20 11:33:17,494 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2026-01-20 11:33:17,522 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 11:33:17,523 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 11:33:20,303 - crewai.utilities.llm_utils - ERROR - Error instantiating LLM from environment/fallback: ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-01-20 11:33:20,306 - __main__ - ERROR - Sensor agent failed: Error importing native provider: OPENAI_API_KEY is required
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\llm.py", line 404, in __new__
+    native_class(model=model_string, provider=provider, **kwargs_copy),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\llms\providers\openai\completion.py", line 97, in __init__
+    client_config = self._get_client_params()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\llms\providers\openai\completion.py", line 134, in _get_client_params
+    raise ValueError("OPENAI_API_KEY is required")
+ValueError: OPENAI_API_KEY is required
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 376, in main
+    agent = SensorIntelligenceAgent(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 63, in __init__
+    self._setup_agent()
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 71, in _setup_agent
+    self.agent = Agent(
+                 ^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\agent\internal\meta.py", line 57, in post_init_setup_with_extensions
+    result = original_func(self)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\agent\core.py", line 254, in post_init_setup
+    self.llm = create_llm(self.llm)
+               ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\utilities\llm_utils.py", line 36, in create_llm
+    return _llm_via_environment_or_fallback()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\utilities\llm_utils.py", line 182, in _llm_via_environment_or_fallback
+    raise e
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\utilities\llm_utils.py", line 177, in _llm_via_environment_or_fallback
+    return LLM(**llm_params)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\crewai\llm.py", line 409, in __new__
+    raise ImportError(f"Error importing native provider: {e}") from e
+ImportError: Error importing native provider: OPENAI_API_KEY is required
+2026-01-20 11:39:06,300 - crewai.llm - ERROR - LiteLLM is not available, falling back to LiteLLM
+2026-01-20 11:55:57,318 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 11:55:57,319 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 11:55:57,320 - __main__ - ERROR - Sensor agent failed: name 'OPENROUTER_KEY' is not defined
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 386, in main
+    agent = SensorIntelligenceAgent(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 66, in __init__
+    self._setup_agent()
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 76, in _setup_agent
+    api_key=OPENROUTER_KEY
+            ^^^^^^^^^^^^^^
+NameError: name 'OPENROUTER_KEY' is not defined
+2026-01-20 11:58:29,727 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 11:58:29,728 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 11:58:29,729 - __main__ - ERROR - Sensor agent failed: name 'OPENROUTER_API_KEY' is not defined
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 386, in main
+    agent = SensorIntelligenceAgent(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 66, in __init__
+    self._setup_agent()
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 76, in _setup_agent
+    api_key=OPENROUTER_API_KEY
+            ^^^^^^^^^^^^^^^^^^
+NameError: name 'OPENROUTER_API_KEY' is not defined
+2026-01-20 12:00:28,829 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 12:00:28,830 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 12:00:28,831 - __main__ - ERROR - Sensor agent failed: name 'OPENROUTER_API_KEY' is not defined
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 386, in main
+    agent = SensorIntelligenceAgent(
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 66, in __init__
+    self._setup_agent()
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 76, in _setup_agent
+    api_key=OPENROUTER_API_KEY
+            ^^^^^^^^^^^^^^^^^^
+NameError: name 'OPENROUTER_API_KEY' is not defined
+2026-01-20 12:03:11,250 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 12:03:11,252 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 12:03:11,261 - __main__ - INFO - Sensor Intelligence Agent initialized
+2026-01-20 12:03:11,261 - __main__ - INFO - ============================================================
+2026-01-20 12:03:11,261 - __main__ - INFO - SENSOR INTELLIGENCE AGENT - CSV MODE
+2026-01-20 12:03:11,262 - __main__ - INFO - ============================================================
+2026-01-20 12:03:11,262 - utils.sensor_stream_simulator - WARNING - CSV file not found: data\sensors\sensor_stream.csv
+2026-01-20 12:03:11,263 - utils.sensor_stream_simulator - INFO - Generating synthetic data...
+2026-01-20 12:03:11,264 - utils.sensor_stream_simulator - INFO - Generating synthetic data: 5 sensors, 1000 readings
+2026-01-20 12:03:11,415 - utils.sensor_stream_simulator - INFO - Synthetic data saved to data\sensors\sensor_stream.csv
+2026-01-20 12:03:11,453 - utils.sensor_stream_simulator - INFO - Loaded 5000 readings from 5 sensors
+2026-01-20 12:03:11,454 - __main__ - INFO - 
+Phase 1: Training anomaly detection model...
+2026-01-20 12:03:11,454 - utils.sensor_stream_simulator - INFO - Generated 10 training windows
+2026-01-20 12:03:11,455 - sensor_pipeline - INFO - Training on 10 windows...
+2026-01-20 12:06:46,223 - sensor_pipeline - INFO - Training feature matrix shape: (10, 3108)
+2026-01-20 12:06:46,241 - sensor_pipeline - INFO - Training StandardScaler...
+2026-01-20 12:06:46,381 - sensor_pipeline - INFO - Training IsolationForest...
+2026-01-20 12:06:46,748 - sensor_pipeline - INFO - Training PCA...
+2026-01-20 12:06:46,761 - __main__ - ERROR - Sensor agent failed: n_components=128 must be between 0 and min(n_samples, n_features)=10 with svd_solver='full'
+Traceback (most recent call last):
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 396, in main
+    agent.run_from_csv(
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_agent.py", line 311, in run_from_csv
+    self.pipeline.train_models(training_windows)
+  File "C:\Users\DELL\Desktop\CONVOLVE\sensor_pipeline.py", line 188, in train_models
+    self.pca.fit(X_scaled)
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\sklearn\base.py", line 1336, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\sklearn\decomposition\_pca.py", line 440, in fit
+    self._fit(X)
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\sklearn\decomposition\_pca.py", line 540, in _fit
+    return self._fit_full(X, n_components, xp, is_array_api_compliant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\DELL\Desktop\CONVOLVE\venv\Lib\site-packages\sklearn\decomposition\_pca.py", line 554, in _fit_full
+    raise ValueError(
+ValueError: n_components=128 must be between 0 and min(n_samples, n_features)=10 with svd_solver='full'
+2026-01-20 12:10:08,185 - tsfresh.feature_extraction.settings - WARNING - Dependency not available for matrix_profile, this feature will be disabled!
+2026-01-20 12:10:08,186 - sensor_pipeline - INFO - Pipeline initialized (window_size=50)
+2026-01-20 12:10:08,191 - __main__ - INFO - Sensor Intelligence Agent initialized
+2026-01-20 12:10:08,192 - __main__ - INFO - ============================================================
+2026-01-20 12:10:08,192 - __main__ - INFO - SENSOR INTELLIGENCE AGENT - CSV MODE
+2026-01-20 12:10:08,192 - __main__ - INFO - ============================================================
+2026-01-20 12:10:08,194 - utils.sensor_stream_simulator - INFO - Loading sensor data from data\sensors\sensor_stream.csv
+2026-01-20 12:10:08,279 - utils.sensor_stream_simulator - INFO - Loaded 5000 readings from 5 sensors
+2026-01-20 12:10:08,280 - __main__ - INFO - 
+Phase 1: Training anomaly detection model...
+2026-01-20 12:10:08,280 - utils.sensor_stream_simulator - INFO - Generated 10 training windows
+2026-01-20 12:10:08,280 - sensor_pipeline - INFO - Training on 10 windows...
+2026-01-20 12:13:37,385 - sensor_pipeline - INFO - Training feature matrix shape: (10, 3108)
+2026-01-20 12:13:37,404 - sensor_pipeline - INFO - Training StandardScaler...
+2026-01-20 12:13:37,588 - sensor_pipeline - INFO - Training IsolationForest...
+2026-01-20 12:13:37,969 - sensor_pipeline - INFO - Training PCA...
+2026-01-20 12:13:38,011 - sensor_pipeline - INFO - PCA explained variance ratio: 1.0000
+2026-01-20 12:13:38,046 - sensor_pipeline - INFO - Models saved to models
+2026-01-20 12:13:38,123 - __main__ - INFO - 
+Phase 2: Real-time monitoring...
