@@ -1,0 +1,7 @@
+# Frontend Requirements
+streamlit==1.31.0
+plotly==5.18.0
+pandas==2.2.0
+numpy==1.26.3
+pillow==10.2.0
+requests==2.31.0

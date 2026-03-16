@@ -1,0 +1,192 @@
+version: "3.8"
+
+services:
+  # Qdrant Vector Database
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: chem-monitor-qdrant
+    ports:
+      - "${QDRANT_PORT:-6333}:6333"
+      - "${QDRANT_GRPC_PORT:-6334}:6334"
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6333/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Input Collection Agent
+  input-collection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.input_collection
+    container_name: chem-monitor-input-collection
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_VIDEO_MODEL_PATH=${VIDEO_MODEL_PATH:-models/mobilenet_v3_small}
+      - CHEM_MONITOR_AUDIO_MODEL_PATH=${AUDIO_MODEL_PATH:-models/panns_cnn14}
+      - CHEM_MONITOR_SENSOR_MODEL_PATH=${SENSOR_MODEL_PATH:-models/sensor_adapter.pth}
+      - CHEM_MONITOR_PROCESSING_TIMEOUT_MS=${PROCESSING_TIMEOUT_MS:-1000}
+      - CHEM_MONITOR_QUEUE_MAX_DEPTH=${QUEUE_MAX_DEPTH:-100}
+    volumes:
+      - ./data:/app/data:ro
+      - ./models:/app/models:ro
+      - input_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  # Anomaly Detection Agent
+  anomaly-detection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.anomaly_detection
+    container_name: chem-monitor-anomaly-detection
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      input-collection:
+        condition: service_started
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_INITIAL_THRESHOLD_VIDEO=${THRESHOLD_VIDEO:-0.7}
+      - CHEM_MONITOR_INITIAL_THRESHOLD_AUDIO=${THRESHOLD_AUDIO:-0.65}
+      - CHEM_MONITOR_INITIAL_THRESHOLD_SENSOR=${THRESHOLD_SENSOR:-2.5}
+      - CHEM_MONITOR_THRESHOLD_LEARNING_RATE=${THRESHOLD_LEARNING_RATE:-0.05}
+    volumes:
+      - anomaly_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  # Cause Detection Agent
+  cause-detection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.cause_detection
+    container_name: chem-monitor-cause-detection
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      anomaly-detection:
+        condition: service_started
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_MSDS_DATABASE_PATH=/app/data/msds_database.json
+      - CHEM_MONITOR_SOP_DATABASE_PATH=/app/data/sop_database.json
+    volumes:
+      - ./data:/app/data:ro
+      - cause_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  # Mild Response Agent
+  response-mild:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_mild
+    container_name: chem-monitor-response-mild
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      cause-detection:
+        condition: service_started
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_MSDS_DATABASE_PATH=/app/data/msds_database.json
+      - CHEM_MONITOR_SOP_DATABASE_PATH=/app/data/sop_database.json
+    volumes:
+      - ./data:/app/data:ro
+      - response_mild_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  # Medium Response Agent
+  response-medium:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_medium
+    container_name: chem-monitor-response-medium
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      cause-detection:
+        condition: service_started
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_MSDS_DATABASE_PATH=/app/data/msds_database.json
+      - CHEM_MONITOR_SOP_DATABASE_PATH=/app/data/sop_database.json
+    volumes:
+      - ./data:/app/data:ro
+      - response_medium_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+  # High Response Agent
+  response-high:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_high
+    container_name: chem-monitor-response-high
+    depends_on:
+      qdrant:
+        condition: service_healthy
+      cause-detection:
+        condition: service_started
+    environment:
+      - CHEM_MONITOR_QDRANT_HOST=qdrant
+      - CHEM_MONITOR_QDRANT_PORT=6333
+      - CHEM_MONITOR_MSDS_DATABASE_PATH=/app/data/msds_database.json
+      - CHEM_MONITOR_SOP_DATABASE_PATH=/app/data/sop_database.json
+      - CHEM_MONITOR_EMERGENCY_CONTACT=${EMERGENCY_CONTACT:-}
+    volumes:
+      - ./data:/app/data:ro
+      - response_high_logs:/app/logs
+    networks:
+      - chem-monitor-network
+    restart: unless-stopped
+    stop_grace_period: 30s
+
+networks:
+  chem-monitor-network:
+    driver: bridge
+    name: chem-monitor-network
+
+volumes:
+  qdrant_storage:
+    name: chem-monitor-qdrant-storage
+  input_logs:
+    name: chem-monitor-input-logs
+  anomaly_logs:
+    name: chem-monitor-anomaly-logs
+  cause_logs:
+    name: chem-monitor-cause-logs
+  response_mild_logs:
+    name: chem-monitor-response-mild-logs
+  response_medium_logs:
+    name: chem-monitor-response-medium-logs
+  response_high_logs:
+    name: chem-monitor-response-high-logs

@@ -1,0 +1,92 @@
+version: "3.8"
+
+# Development override for docker-compose.yml
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  # Development overrides for all agents
+  input-collection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.input_collection
+      target: development
+    volumes:
+      - ./src:/app/src:ro # Mount source for hot reload
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.input_collection_agent"]
+
+  anomaly-detection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.anomaly_detection
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.anomaly_detection_agent"]
+
+  cause-detection:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.cause_detection
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.cause_detection_agent"]
+
+  response-mild:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_mild
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.mild_response_agent"]
+
+  response-medium:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_medium
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.medium_response_agent"]
+
+  response-high:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.response_high
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=DEBUG
+    command: ["python", "-u", "-m", "src.agents.high_response_agent"]
+
+  # Qdrant with dashboard exposed
+  qdrant:
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    environment:
+      - QDRANT__LOG_LEVEL=DEBUG

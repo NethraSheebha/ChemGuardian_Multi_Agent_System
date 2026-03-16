@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+
+# Documentation
+*.md
+!README.md
+
+# Test files
+tests/
+test_*.py
+*_test.py
+
+# Logs
+*.log
+
+# Environment files (use templates instead)
+.env
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Video/data files (mount as volumes instead)
+*.mp4
+*.avi
+*.mov
+*.csv
+!data/*.json
+
+# Notebooks
+*.ipynb
+baselines_embeddings.ipynb
+
+# Task completion markers
+TASK*.md
+CHECKPOINT*.md
+SETUP*.md
+
+# YAML configs (use environment variables)
+*.yaml
+!docker-compose.yml
